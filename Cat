@@ -1,0 +1,29 @@
+package Lesson7;
+
+public class Cat {
+    private static int countofCats = 0;
+   private String name;
+   private int appetite;
+   private boolean satiety;
+
+
+    public Cat(String name, int appetite) {
+        this.name = name;
+        this.appetite = appetite;
+        this.satiety = true;
+        countofCats++;
+    }
+    void info() {
+        String isHungry = !satiety ? "сыт" : "голоден";
+        System.out.println(name + ": " + isHungry);
+    }
+    void eat(Plate plate) {
+        if (satiety && plate.decreaseFood(appetite))
+            satiety = false;
+
+       }
+
+    public static int getCountofCats() {
+       return countofCats;
+    }
+}
